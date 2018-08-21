@@ -6,7 +6,7 @@ This is a loopback Note project as created with the loopacbk CLI with the `loopb
 
 In the `server/middleware.json` file, the `final` step is configured to call the `error-logger.js` function every time an error occurs. Additionaly, in the `server/middleware-development.json` file, `strong-error-handler` is configured to not log an error and return the entire error to the client. Currently, this does not happen. Instead, `error-logger` is not called, the error is logged and returned in a truncated form to the client. (Incidentally, this is the default loopback behavior) Commenting out the require for `loopback-datatype-objectId` in `server/server.js` will fix this and cause the error catching to occur as configured.
 
-#Steps to replicate
+## Steps to replicate
 
 1. Run the loopback server with the console command `node .`
 2. A custom remote method is configured at "http://localhost:3000/api/Notes/test". Executing this call will return a 500 error. The error will be logged in the console and returned in truncated form
